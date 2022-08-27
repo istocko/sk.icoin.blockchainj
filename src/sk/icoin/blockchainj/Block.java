@@ -10,6 +10,7 @@ public class Block {
 	private String prevHash;
 	private String transaction;
 	
+	
 	public Block(int id, String transaction, String prevHash) {
 		this.id = id;
 		this.transaction = transaction;
@@ -19,10 +20,11 @@ public class Block {
 	}
 	
 	
-	public void generateHash() {
+	public String generateHash() {
 		String dataToHash = Integer.toString(id) + prevHash + Long.toString(timeStamp) + Integer.toString(nonce) + transaction.toString();
 		String hashValue = SHA256Helper.generateHash(dataToHash);
 		this.hash = hashValue;
+		return hashValue;
 	}
 	
 	public String getHash() {
@@ -48,6 +50,8 @@ public class Block {
 	public String toString() {
 		return this.id+"-"+this.transaction+"-"+this.hash+"-"+this.prevHash+"-";
 	}
+
+
 	
 	
 }

@@ -6,10 +6,10 @@ public class Miner {
 	
 	public void mine(Block block, BlockChain blockChain ) {
 		while (notGoldenHash(block)) {
-			block.generateHash();
 			block.incrementNonce();
+			block.generateHash();
+			
 		}
-		
 		String msg = block+" has just mined ...";
 		this.lastInfoMsg = msg;
 		System.out.println(msg);
