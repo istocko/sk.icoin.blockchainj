@@ -1,4 +1,4 @@
-package blockchainj;
+package sk.icoin.blockchainj;
 
 import java.security.MessageDigest;
 

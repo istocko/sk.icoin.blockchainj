@@ -1,4 +1,4 @@
-package blockchainj;
+package sk.icoin.blockchainj;
 
 public class Miner {
 	private double reward;

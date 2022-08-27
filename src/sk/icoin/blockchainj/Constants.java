@@ -1,4 +1,4 @@
-package blockchainj;
+package sk.icoin.blockchainj;
 
 public class Constants {
 	public static final int DIFFICULTY =5;
