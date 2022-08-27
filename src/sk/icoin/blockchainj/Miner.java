@@ -2,6 +2,7 @@ package sk.icoin.blockchainj;
 
 public class Miner {
 	private double reward;
+	private String lastInfoMsg;
 	
 	public void mine(Block block, BlockChain blockChain ) {
 		while (notGoldenHash(block)) {
@@ -9,8 +10,13 @@ public class Miner {
 			block.incrementNonce();
 		}
 		
-		System.out.println(block+" has just mined ...");
-		System.out.println("Hash is: "+block.getHash());
+		String msg = block+" has just mined ...";
+		this.lastInfoMsg = msg;
+		System.out.println(msg);
+		
+		msg = "Hash is: "+block.getHash();
+		this.lastInfoMsg += "\n" + msg;
+		System.out.println(msg);
 		
 		blockChain.addBlock(block);
 		
@@ -25,6 +31,10 @@ public class Miner {
 	
 	public double getReward() {
 		return this.reward;
+	}
+	
+	public String getInfoMsg() { 
+		return this.lastInfoMsg;
 	}
 	
 }
